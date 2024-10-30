@@ -9,10 +9,10 @@ import {
   Megaphone,
   Notebook,
   NotePencil,
+  Person,
   SquaresFour,
   Users,
 } from "@phosphor-icons/react";
-import { RiParentLine } from "react-icons/ri";
 
 export const links = [
   {
@@ -33,7 +33,7 @@ export const links = [
   {
     label: "Parents",
     href: "/",
-    Icon: <RiParentLine className="w-6 h-6" />,
+    Icon: <Person className="w-6 h-6" />,
   },
   {
     label: "Subjects",
