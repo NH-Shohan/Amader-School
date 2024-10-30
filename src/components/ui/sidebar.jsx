@@ -1,8 +1,7 @@
 "use client";
 
-// import logo from "@/assets/logo.svg";
 import { cn } from "@/lib/utils";
-import { Cross } from "@phosphor-icons/react/dist/ssr";
+import { List, X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { createContext, useContext, useState } from "react";
@@ -58,11 +57,11 @@ export const DesktopSidebar = ({ className, children, ...props }) => {
     <>
       <motion.div
         className={cn(
-          "h-full px-5 py-5 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
+          "h-full px-4 py-4 hidden md:flex md:flex-col bg-neutral-200 dark:bg-neutral-800 w-[280px] flex-shrink-0",
           className
         )}
         animate={{
-          width: animate ? (open ? "300px" : "90px") : "300px",
+          width: animate ? (open ? "280px" : "80px") : "280px",
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -76,17 +75,20 @@ export const DesktopSidebar = ({ className, children, ...props }) => {
 
 export const MobileSidebar = ({ className, children, ...props }) => {
   const { open, setOpen } = useSidebar();
-
   return (
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+          "h-12 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
         )}
         {...props}
       >
-        <div className="flex justify-end z-20 w-full">
-          {/* <Image src={logo} alt="logo" priority /> */}
+        <div className="flex justify-end z-20 w-full cursor-pointer">
+          <List
+            size={32}
+            className="text-neutral-800 dark:text-neutral-200"
+            onClick={() => setOpen(!open)}
+          />
         </div>
         <AnimatePresence>
           {open && (
@@ -99,15 +101,15 @@ export const MobileSidebar = ({ className, children, ...props }) => {
                 ease: "easeInOut",
               }}
               className={cn(
-                "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
+                "fixed h-full w-full inset-0 bg-white dark:bg-neutral-900 p-6 z-[100] flex flex-col justify-between",
                 className
               )}
             >
               <div
-                className="absolute right-10 top-10 z-50 text-neutral-800 dark:text-neutral-200"
+                className="absolute right-10 top-9 z-50 text-neutral-800 dark:text-neutral-200 cursor-pointer"
                 onClick={() => setOpen(!open)}
               >
-                <Cross />
+                <X size={24} />
               </div>
               {children}
             </motion.div>
@@ -118,25 +120,28 @@ export const MobileSidebar = ({ className, children, ...props }) => {
   );
 };
 
-export const SidebarLink = ({ link, className, active, ...props }) => {
+export const SidebarLink = ({ link, logout, className, ...props }) => {
   const { open, animate } = useSidebar();
   return (
     <Link
       href={link.href}
       className={cn(
-        "text-neutral-500 flex items-center justify-start gap-3 group/sidebar hover:bg-blue-500/10 hover:text-blue-600 p-3 rounded-xl h-12",
-        active && "bg-blue-600/10 text-blue-600",
+        "flex items-center justify-start gap-2 group/sidebar py-2 px-3 hover:bg-blue-500/10 hover:text-blue-500 rounded-lg",
         className
       )}
       {...props}
     >
-      <span className="group-hover:text-blue-600">{link.Icon}</span>
+      {link.Icon}
       <motion.span
         animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
+          display: animate ? (open ? "flex" : "none") : "flex",
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="group-hover/sidebar:translate-x-[2px] transition duration-150 whitespace-pre inline-block !p-0 !m-0 text-base font-medium"
+        className={`flex items-center gap-3 text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-0.5 transition duration-150 whitespace-pre font-medium !p-0 !m-0 ${
+          logout
+            ? "group-hover/sidebar:text-red-500"
+            : "group-hover/sidebar:text-blue-500"
+        }`}
       >
         {link.label}
       </motion.span>
