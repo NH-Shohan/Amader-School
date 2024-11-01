@@ -22,8 +22,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`h-screen antialiased`}>
-        <Sidebar className="" open={open} setOpen={setOpen} animate={true}>
-          <SidebarBody className="justify-between gap-5 bg-neutral-50">
+        <main className={`h-screen flex`}>
+          <Sidebar className="" open={open} setOpen={setOpen} animate={true}>
+            <SidebarBody className="justify-between gap-5 bg-neutral-50">
             <div className="flex flex-col overflow-y-auto overflow-x-hidden">
               <>
                 <Logo />
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
           </SidebarBody>
         </Sidebar>
         <div className="w-full h-screen">{children}</div>
+       </main>
       </body>
     </html>
   );

@@ -22,7 +22,7 @@ export const links = [
   },
   {
     label: "Students",
-    href: "/",
+    href: "/students",
     Icon: <Users className="w-6 h-6" />,
   },
   {
