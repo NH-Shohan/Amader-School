@@ -1,6 +1,10 @@
+import { BsThreeDots } from "react-icons/bs";
+import MiddleLeftChart from "./Dashboard/middleLeftChart";
+import MiddleRightChart from "./Dashboard/middleRightChart.jsx";
+import FinanceBarChart from "./Dashboard/financeBarChart";
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full py-2">
+    <div className="bg-[#F6F8FA] flex flex-col items-center justify-center h-full w-full py-2">
       <div className="h-full p-2 w-full grid grid-cols-1 lg:grid-cols-3 gap-3">
         {/* 1st row */}
         <div className="border col-span-2 p-2">
@@ -53,12 +57,34 @@ export default function Home() {
 
           {/* 2nd row */}
           <div className="my-2 lg:flex   gap-3">
-            <div className="border w-[40%] rounded bg-blue-500/20 pt-4">
-              <h1>ohui</h1>
+            <div className=" px-4  border w-[33%] rounded bg-white  pt-4">
+              {/* title */}
+              <div className="flex justify-between">
+                <h1>Students</h1>
+                <div className="  px-2  flex items-center justify-center">
+                  <BsThreeDots />
+                </div>
+              </div>
+              {/* chart */}
+              <MiddleLeftChart />
             </div>
 
-            <div className="border w-[60%] rounded bg-green-500/20 pt-4">
-              <h1>ohui</h1>g
+            <div className=" px-2 border w-[67%] rounded bg-white  pt-4">
+              {/* title */}
+              <div className="flex justify-between">
+                <h1>Attendance</h1>
+                <div className="  px-2  flex items-center justify-center">
+                  <BsThreeDots />
+                </div>
+              </div>
+
+              <MiddleRightChart />
+            </div>
+          </div>
+          {/* 3rd row */}
+          <div className="border rounded bg-white pt-4">
+            <div className="px-4">
+              <FinanceBarChart />
             </div>
           </div>
         </div>
