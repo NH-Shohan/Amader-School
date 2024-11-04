@@ -22,40 +22,40 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`h-screen antialiased`}>
-        <main className={`h-screen flex`}>
+        <main className={`h-screen flex lg:flex-row flex-col`}>
           <Sidebar className="" open={open} setOpen={setOpen} animate={true}>
             <SidebarBody className="justify-between gap-5 bg-neutral-50">
-            <div className="flex flex-col overflow-y-auto overflow-x-hidden">
-              <>
-                <Logo />
-              </>
-              <div className="mt-8 flex flex-col gap-1">
-                {links.map((link, idx) => (
-                  <SidebarLink
-                    key={idx}
-                    link={link}
-                    // active={pathname.startsWith(link.href)}
-                  />
-                ))}
+              <div className="flex flex-col overflow-y-auto overflow-x-hidden">
+                <>
+                  <Logo />
+                </>
+                <div className="mt-8 flex flex-col gap-1">
+                  {links.map((link, idx) => (
+                    <SidebarLink
+                      key={idx}
+                      link={link}
+                      // active={pathname.startsWith(link.href)}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="">
-              <SidebarLink
-                className="hover:bg-red-500/10 hover:text-red-500"
-                onClick={handleLogout}
-                link={{
-                  label: "Log Out",
-                  href: "/admin",
-                  Icon: <SignOut className="w-6 h-6" />,
-                }}
-                logout
-              />
-            </div>
-          </SidebarBody>
-        </Sidebar>
-        <div className="w-full h-screen">{children}</div>
-       </main>
+              <div className="">
+                <SidebarLink
+                  className="hover:bg-red-500/10 hover:text-red-500"
+                  onClick={handleLogout}
+                  link={{
+                    label: "Log Out",
+                    href: "/admin",
+                    Icon: <SignOut className="w-6 h-6" />,
+                  }}
+                  logout
+                />
+              </div>
+            </SidebarBody>
+          </Sidebar>
+          <div className="w-full h-screen">{children}</div>
+        </main>
       </body>
     </html>
   );

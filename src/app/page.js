@@ -2,6 +2,8 @@ import { BsThreeDots } from "react-icons/bs";
 import MiddleLeftChart from "./Dashboard/middleLeftChart";
 import MiddleRightChart from "./Dashboard/middleRightChart.jsx";
 import FinanceBarChart from "./Dashboard/financeBarChart";
+import Events from "./Dashboard/events";
+import Announcement from "./Dashboard/announcement";
 export default function Home() {
   return (
     <div className="bg-[#F6F8FA] flex flex-col items-center justify-center h-full w-full py-2">
@@ -57,7 +59,7 @@ export default function Home() {
 
           {/* 2nd row */}
           <div className="my-2 lg:flex   gap-3">
-            <div className=" px-4  border w-[33%] rounded bg-white  pt-4">
+            <div className=" px-4  border lg:w-[33%] w-full rounded bg-white  pt-4">
               {/* title */}
               <div className="flex justify-between">
                 <h1>Students</h1>
@@ -69,7 +71,7 @@ export default function Home() {
               <MiddleLeftChart />
             </div>
 
-            <div className=" px-2 border w-[67%] rounded bg-white  pt-4">
+            <div className=" px-2 border lg:w-[67%] w-full rounded bg-white  pt-4">
               {/* title */}
               <div className="flex justify-between">
                 <h1>Attendance</h1>
@@ -88,9 +90,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <div className="border  rounded col-span-1">
-          <h1>ohui</h1>
+        {/* right side */}
+        <div className="border px-4 rounded col-span-1">
+          <Events />
+          <Announcement />
         </div>
       </div>
     </div>
