@@ -27,12 +27,12 @@ export const links = [
   },
   {
     label: "Teachers",
-    href: "/",
+    href: "/teachers",
     Icon: <GraduationCap className="w-6 h-6" />,
   },
   {
     label: "Parents",
-    href: "/",
+    href: "/parents",
     Icon: <Person className="w-6 h-6" />,
   },
   {

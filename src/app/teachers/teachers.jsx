@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { FaPlus } from "react-icons/fa";
-import StudentsTable from "@/components/ui/studentsTable";
-const Students = () => {
+import TeachersTable from "@/components/ui/teachersTable";
+const Teachers = () => {
   return (
     <div className="p-4 m-4 border rounded-lg">
       <div className=" mb-8 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">All Students</h1>
+        <h1 className="text-2xl font-bold">All Teachers</h1>
         <div className="flex items-center gap-2">
           <input
             className="w-full  border rounded-3xl p-2"
@@ -19,9 +19,9 @@ const Students = () => {
         </div>
       </div>
       {/* table */}
-      <StudentsTable />
+      <TeachersTable />
     </div>
   );
 };
 
-export default Students;
+export default Teachers;
